@@ -3,6 +3,9 @@
 <head>
 
   <style>
+    body{
+      background-color:rgb(214, 240, 248);
+    }
     #notes_list{
       display: flex;
     flex-direction: column;
@@ -22,18 +25,18 @@
   </style>
 
 
-  <title>Prioritize</title>
+  <title>someday</title>
 </head>
 <body>
   <nav id="notes_list">
   </nav>
   <div id="main">
-  <h1> Prioritize</h1>
+  <h1>someday</h1>
   <h4><label>Spending Money<input type="number" id='spending' onkeyup="highLight();"></label></h4>
   <input type="text"  placeholder ="Title" id="titleInput">
   <br>
   <input type="number" placeholder= "Cost" id="costInput">
-  <input type="text" placeholder= "Write your notes here..." id="bodyInput">
+  <input type="text" placeholder= "Information" id="bodyInput">
   <br>
   <button id ="submit" onclick="submitNotes(0)">Top</button>
   <button id ="submit" onclick="submitNotes(notesCollection.length/2)">Middle</button>
