@@ -1,0 +1,126 @@
+/* Your app styles here */
+:root{
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+}
+button{
+    border-radius: 5px;
+    background-color:white;
+}
+.navbar{
+ background-color: rgb(9, 63, 9);
+    color: white;
+}
+.fab>a, .fab-label-button{
+    background-color:green !important;
+}
+#spendingContainer{
+    background-color:green;
+    height: 50px;
+    width:50px;
+    border-radius: 50px;
+    padding: 15px;
+    font-size: 18px;
+    overflow: hidden;
+    justify-content: center;
+    align-content: center;
+    display:flex;
+    position: fixed;
+    left: 10px;
+    top: 70px;
+    z-index: 5;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.575);
+}
+#dollar{
+    background-color: rgb(167, 238, 179);
+    height: 35px;
+    width: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    position: absolute;
+    left: 7px;
+    top: 20px;
+    padding-top:5px;
+}
+#spending{
+    background-color: rgb(167, 238, 179);
+    height: 40px;
+    width: 55px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    text-align: center;
+
+}
+#addItemBar{
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+}
+.toolbar-inner{
+    display:flex;
+    flex-direction: column;
+}
+.toolbar-inner>button{
+    position:fixed;
+    top:0;
+}
+#inputTab{
+    position:fixed;
+    top:50px;
+    width: 95vw;
+}
+#buttonWrapper{
+    width:95vw;
+    display:flex;
+    flex-direction:row;
+}
+#cardContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#infoCard{
+    width: 70vw;
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(19, 73, 173);
+    align-content: center;
+    text-align:center;
+    position:absolute;
+    top: 250px;
+    left: 10%;
+    padding: 5vw;
+    color:white;
+    border-radius: 5px;
+}
+.card{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    width: 80vw;
+    padding: 10px;
+    background-color: rgb(152, 180, 152);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.575);
+    z-index: 2;
+}
+.firstRow{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.secondRow{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.thirdRow{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+.true{
+    background-color:rgb(211, 210, 143) !important; 
+}

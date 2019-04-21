@@ -1,9 +1,41 @@
-//let submitNotes = () => getElementById('titleInput').value;
+// Dom7
+var $$ = Dom7;
+
+// Framework7 App main instance
+var app  = new Framework7({
+  root: '#app', // App root element
+  id: 'io.framework7.testapp', // App bundle ID
+  name: 'Framework7', // App name
+  theme: 'auto', // Automatic theme detection
+  // App root data
+  data: function () {
+    return {
+      user: {
+        firstName: 'John',
+        lastName: 'Doe',
+      },
+    };
+  },
+  // App root methods
+  methods: {
+    helloWorld: function () {
+      app.dialog.alert('Hello World!');
+    },
+  },
+  // App routes
+  routes: routes,
+});
+
+// Init/Create main view
+var mainView = app.views.create('.view-main', {
+  url: '/'
+});
+
 let title = "",
     body = "",
     timeStamp = "",
     uid = "",
-    element = document.getElementById("testNote");
+    element = document.getElementById("cardContainer");
     list = document.getElementById("notes_list");
     notesCollection = JSON.parse(localStorage.getItem("notesArray"));
     if (notesCollection==null) {
@@ -15,15 +47,52 @@ let title = "",
 
 
 
-function loop(array){
-  i = 0; i < array.length; i++
-};
 
+
+function expand(thisId, thisHeight, thisNewHeight) {
+  let change = document.getElementById(thisId).style;
+
+  change.height = change.height === thisNewHeight ? thisHeight : thisNewHeight;
+}
+
+function htmlSwap() {
+  expand('addItemBar', '50px', '350px');
+  document.getElementById('buttonWrapper').innerHTML = `<div id="buttonWrapper" onclick="newButtons();">
+  <button  class="col button">Add Item</button>`;
+}
+
+
+
+function newButtons(){
+  expand('addItemBar', '50px', '350px');
+  document.getElementById('buttonWrapper').innerHTML = `<button id ="submit" class="col button" onclick="submitNotes(0)">Top</button>
+  <button id ="submit" class="col button" onclick="submitNotes(notesCollection.length/2)">Middle</button>
+  <button id ="submit" class="col button" onclick="submitNotes(notesCollection.length)">Bottom</button><button id ="submit" onclick="htmlSwap();" class="col button">Cancel</button>`
+}
 // Below the array of note objects is iterated through adding html elements containing the properties of each note objects.
 function loadNotes(){
   element.innerHTML = "";
   for (i = 0; i < notesCollection.length; i++){
-      var htmlString = "<div class="+notesCollection[i].highlight+" data-uid='"+notesCollection[i].uid+"' ><button href='#' onclick='deleteMe(this);' style='float:right; margin-right:10px;' data-uid='"+notesCollection[i].uid+"'>X</button><button href='#' onclick='editMe(this);' style='float:right; margin-right:10px;' >Edit</button><h1>"+notesCollection[i].title+"</h1><h1>"+notesCollection[i].cost+"</h1><h5>"+notesCollection[i].timeStamp+"</h5><p>"+notesCollection[i].body+"</p><button data-uid="+notesCollection[i].uid+" onclick='moveUp(this);'>^</button><button data-uid="+notesCollection[i].uid+" onclick='moveDown(this);'>v</button><button data-uid="+notesCollection[i].uid+" onclick='purchased(this);'>Purchased</button><p>"+Number(i+1)+"</p></div><hr>";
+      var htmlString = `<div class="card ${notesCollection[i].highlight}" data-uid='${notesCollection[i].uid}'>
+      <div class='firstRow'>
+      <div>${Number(i+1)}</div>
+      <button data-uid=${notesCollection[i].uid} onclick='moveUp(this);'>^</button>
+      <button data-uid='${notesCollection[i].uid}' onclick='moveDown(this);'>v</button>
+      </div>
+      
+      <div class='secondRow'>
+      <h1>${notesCollection[i].title}</h1>
+      <p>${notesCollection[i].body}</p>
+      <button data-uid='${notesCollection[i].uid}' onclick='purchased(this);'>Purchased</button>
+      </div>
+      
+      <div class='thirdRow'>
+      <h1>${notesCollection[i].cost}</h1>
+      <button href='#' onclick='editMe(this);' style='float:right; margin-right:10px;'>Edit</button>
+      <button href='#' onclick='deleteMe(this);' style='float:right; margin-right:10px;' data-uid='${notesCollection[i].uid}'>X</button>
+      </div>
+      
+      </div>`;
       var noteDiv = document.createElement('article');
       noteDiv.innerHTML = htmlString;
       element.appendChild(noteDiv);
@@ -32,6 +101,17 @@ function loadNotes(){
     }
   }
 };
+
+
+
+
+
+
+
+
+
+
+
 
 function editMe(thisthis){
     // define the html string, its delicate, needs to be adjusted if more html nodes are added
@@ -113,9 +193,9 @@ function deleteMe(thisthis){
 
 //Adds an h2 with the title of the new note upon creation.
 function titleList(){
-  list.innerHTML = "<h1>List of Notes</h1>";
+  list.innerHTML = "";
   for (i = 0; i < notesCollection.length; i++){
-    let listContent = "<h2 class="+notesCollection[i].highlight+">" + notesCollection[i].title+"<h2>";
+    let listContent = '<a href="#" class="fab-label-button '+notesCollection[i].highlight+'"><span>'+Number(i+1)+'</span><span class="fab-label">'+notesCollection[i].title+'</span></a>';
     let listDiv = document.createElement('div');
     listDiv.innerHTML = listContent;
     list.appendChild(listDiv);
@@ -143,7 +223,6 @@ function moveDown(thisNote){
   let thisUid = thisNote.getAttribute('data-uid');
       thisIndex = findWithAttr(notesCollection, 'uid', thisUid);
       if (thisIndex<notesCollection.length){
-        console.log('clicked');
       notesCollection.splice(thisIndex+2, 0,notesCollection[thisIndex]);
       notesCollection.splice(thisIndex, 1);
       let notesCollectionSerialized = JSON.stringify(notesCollection);
@@ -155,14 +234,13 @@ function moveDown(thisNote){
  }
 
  function purchased(thisNote){
+
   let thisUid = thisNote.getAttribute('data-uid');
   let thisIndex = findWithAttr(notesCollection, 'uid', thisUid);
   let spending = document.getElementById('spending').value;
   spending = spending - notesCollection[thisIndex].cost;
   document.getElementById('spending').value = spending;
-  console.log(spending);
   notesCollection.splice(thisIndex, 1);
-  console.log(thisIndex);
   let notesCollectionSerialized = JSON.stringify(notesCollection);
       localStorage.setItem("notesArray", notesCollectionSerialized);
   loadNotes();
@@ -192,6 +270,7 @@ function submitNotes(spot){
   loadNotes();
   titleList();
   highLight();
+  htmlSwap();
 };
 
 // Below localStorage is cleared, as well as the array of note objects and the output html element.
@@ -200,4 +279,5 @@ function deleteNotes(){
   notesCollection = [];
   element.innerHTML = "";
   titleList();
+  htmlSwap();
 };
