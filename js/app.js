@@ -82,7 +82,7 @@ function loadNotes(){
       </div>
       
       <div class='secondRow'>
-      <h1>${notesCollection[i].title}</h1>
+      <h1 class="${notesCollection[i].highlight+'1'}">${notesCollection[i].title}</h1>
       <p>${notesCollection[i].body}</p>
       <button class='upButton' data-uid='${notesCollection[i].uid}' onclick='purchased(this);'>Purchased</button>
       </div>

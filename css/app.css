@@ -88,7 +88,7 @@ background-color: rgb(215, 237, 255);
     align-content: center;
     text-align:center;
     position:absolute;
-    top: 250px;
+    top: 100px;
     left: 10%;
     padding: 5vw;
     color:white;
@@ -121,27 +121,24 @@ background-color: rgb(215, 237, 255);
 }
 .true::before{
     content: '';
-    height: 10px;
+    height: 20px;
     width: 25px;
-    background-color: pink;
+    background-color: rgb(255, 255, 1);
     position:absolute;
-    top: -1px;
+    z-index: -1;
+    display:block;
+    top: 0px;
 }
-
- .card .true::before{
+.true::after{
     content: '';
-    height: 40px;
-    width: 55px;
-    background-color: red;
+    height: 25px;
+    width: 25px;
+    border-radius: 50px;
+    background-color: rgb(0, 140, 255);
     position:absolute;
-    top: -1px;
-    left: 0px;
-}
-
-#submitWrapper{
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
+    z-index: -1;
+    display:block;
+    top: 10px;
 }
 .indexDisplay{
     background-color:rgb(0, 140, 255);
@@ -152,7 +149,18 @@ background-color: rgb(215, 237, 255);
     color:white;
     padding-top: 2px;
     font-weight: 800;
+    z-index: 1;
 }
+.true1{
+    background-color:rgb(251, 255, 0);
+}
+
+#submitWrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
 .upButton {
     -webkit-transition-duration: 0.2s;
     transition-duration: 0.2s;
