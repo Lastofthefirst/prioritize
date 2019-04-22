@@ -74,7 +74,7 @@ function loadNotes(){
     element.innerHTML = "<div id='infoCard'><p>Welcome to someday</p>Create a list of items organized by priority, with those items most urgent at the top.<p>Once you have some money available to put towards them enter the amount in the top left bubble.</p><p>Im sure you'll get to the bottom of the list someday.</p></div>"
   }
   for (i = 0; i < notesCollection.length; i++){
-      var htmlString = `<div class="card" data-uid='${notesCollection[i].uid}'>
+      var htmlString = `<div class="card ${notesCollection[i].highlight+'1'}" data-uid='${notesCollection[i].uid}'>
       <div class='firstRow'>
       <div class='indexDisplay ${notesCollection[i].highlight}'> ${Number(i+1)}</div>
       <button class='upButton'data-uid=${notesCollection[i].uid} onclick='moveUp(this);'>Up</button>
@@ -82,7 +82,7 @@ function loadNotes(){
       </div>
       
       <div class='secondRow'>
-      <h1 class="${notesCollection[i].highlight+'1'}">${notesCollection[i].title}</h1>
+      <h1 class="itemCardTitle ${notesCollection[i].highlight+'1'}">${notesCollection[i].title}</h1>
       <p>${notesCollection[i].body}</p>
       <button class='upButton' data-uid='${notesCollection[i].uid}' onclick='purchased(this);'>Purchased</button>
       </div>
