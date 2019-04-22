@@ -58,14 +58,14 @@ function expand(thisId, thisHeight, thisNewHeight) {
 function htmlSwap() {
   expand('addItemBar', '50px', '370px');
   document.getElementById('buttonWrapper').innerHTML = `<div id="buttonWrapper" onclick="newButtons();">
-  <button  class="col button">Add Item</button>`;
+  <button  class="col upButton button">Add Item</button>`;
 }
 
 
 
 function newButtons(){
   expand('addItemBar', '50px', '370px');
-  document.getElementById('buttonWrapper').innerHTML = `<button id ="submit" onclick="htmlSwap();" class="col button">Cancel</button>`
+  document.getElementById('buttonWrapper').innerHTML = `<button id ="submit" onclick="htmlSwap();" class="col upButton button">Cancel</button>`
 }
 // Below the array of note objects is iterated through adding html elements containing the properties of each note objects.
 function loadNotes(){
@@ -78,7 +78,7 @@ function loadNotes(){
       <div class='firstRow'>
       <div class='indexDisplay ${notesCollection[i].highlight}'> ${Number(i+1)}</div>
       <button class='upButton'data-uid=${notesCollection[i].uid} onclick='moveUp(this);'>Up</button>
-      <button class='downButton'data-uid='${notesCollection[i].uid}' onclick='moveDown(this);'>Down</button>
+      <button class='upButton'data-uid='${notesCollection[i].uid}' onclick='moveDown(this);'>Down</button>
       </div>
       
       <div class='secondRow'>
@@ -286,4 +286,5 @@ function deleteNotes(){
   notesCollection = [];
   element.innerHTML = "";
   titleList();
+  highLight();
 };

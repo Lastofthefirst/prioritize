@@ -119,41 +119,20 @@ background-color: rgb(215, 237, 255);
     flex-direction:column;
     justify-content: space-between;
 }
-.true::before{
-    content: '';
-    height: 20px;
-    width: 25px;
-    background-color: rgb(255, 255, 1);
-    position:absolute;
-    z-index: -1;
-    display:block;
-    top: 0px;
-}
-.true::after{
-    content: '';
-    height: 25px;
-    width: 25px;
-    border-radius: 50px;
-    background-color: rgb(0, 140, 255);
-    position:absolute;
-    z-index: -1;
-    display:block;
-    top: 10px;
-}
+
+
 .indexDisplay{
     background-color:rgb(0, 140, 255);
     border-radius: 50px;
-    height: 23px;
-    width: 25px;
+    height: 27px;
+    width: 35px;
     text-align: center;
     color:white;
-    padding-top: 2px;
+    padding-top: 8px;
     font-weight: 800;
     z-index: 1;
 }
-.true1{
-    background-color:rgb(251, 255, 0);
-}
+
 
 #submitWrapper{
     display: flex;
@@ -173,25 +152,16 @@ background-color: rgb(215, 237, 255);
     display: absolute;
     right: 5px;
     height: 40px;
+    margin-left: 1vw;
+    margin-right:1vw;
+    margin-top: 2px;
+    margin-bottom:2px;
 }
 
 .upButton:hover {
     color: white;
     background-color: rgb(0, 140, 255);
     box-shadow: none;
-}
-.downButton {
-    -webkit-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-    background-color: white;
-    color: rgb(0, 140, 255);
-    border: 2px solid rgb(0, 140, 255);
-    border-radius: 5px;
-    box-shadow: 0.5px 0.5px 1px rgba(105, 105, 105, 0.637);
-    font-size: 16px;
-    display: absolute;
-    right: 5px;
-    height: 40px;
 }
 
 .downButton:hover {
@@ -214,4 +184,12 @@ background-color: rgb(215, 237, 255);
 }
 .del{
     background-color: rgb(14, 26, 202) !important;
+}
+.true{
+    box-shadow: 0px -2px 8px 2px rgb(251, 255, 0)!important;
+}
+.true1{
+    box-shadow: 0px -2px 8px 2px rgb(251, 255, 0)!important;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
 }
