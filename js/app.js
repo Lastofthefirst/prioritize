@@ -188,7 +188,7 @@ function deleteMe(thisthis){
     // 5. Reload notes & title list
   loadNotes();
   titleList();
-
+  highLight();
 };
 
 //Adds an h2 with the title of the new note upon creation.

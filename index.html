@@ -38,6 +38,9 @@
         <div class="navbar">
           <div class="navbar-inner">
             <div class="title right">someday</div>
+            <div id="spendingContainer">
+              <div id="dollar">$</div><input type="number" id='spending' onkeyup="highLight();">
+            </div>
           </div>
         </div>
         <div class="fab fab-right-top">
@@ -103,9 +106,6 @@
         </div>
         <!-- Scrollable page content-->
         <div class="page-content">
-          <div id="spendingContainer">
-          <div id="dollar">$</div><input type="number" id='spending' onkeyup="highLight();">
-        </div>
             <div id="cardContainer"></div>
             <div id="infoCard"><p>Welcome to someday</p>Create a list of items organized by priority, with those items most urgent at the top.<p>Once you have some money available to put towards them enter the amount in the top left bubble.</p><p>Im sure you'll get to the bottom of the list someday.</p></div>
           </div>

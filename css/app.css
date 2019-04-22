@@ -16,7 +16,7 @@ button{
 }
 #spendingContainer{
     background-color:green;
-    height: 50px;
+    height: 20px;
     width:50px;
     border-radius: 50px;
     padding: 15px;
@@ -27,30 +27,31 @@ button{
     display:flex;
     position: fixed;
     left: 10px;
-    top: 35px;
+    top: 5px;
     z-index: 5;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.575);
 }
 #dollar{
     background-color: rgb(167, 238, 179);
-    height: 35px;
+    height: 28px;
     width: 15px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     position: absolute;
     left: 7px;
-    top: 20px;
-    padding-top:5px;
+    top: 10px;
+    padding-top:2px;
+    padding-left: 3px;
 }
 #spending{
     background-color: rgb(167, 238, 179);
-    height: 40px;
+    height: 30px;
     width: 55px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     position: absolute;
     left: 20px;
-    top: 20px;
+    top: 10px;
     text-align: center;
 
 }
