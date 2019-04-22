@@ -56,7 +56,7 @@ function expand(thisId, thisHeight, thisNewHeight) {
 }
 
 function htmlSwap() {
-  expand('addItemBar', '50px', '350px');
+  expand('addItemBar', '50px', '370px');
   document.getElementById('buttonWrapper').innerHTML = `<div id="buttonWrapper" onclick="newButtons();">
   <button  class="col button">Add Item</button>`;
 }
@@ -64,10 +64,8 @@ function htmlSwap() {
 
 
 function newButtons(){
-  expand('addItemBar', '50px', '350px');
-  document.getElementById('buttonWrapper').innerHTML = `<button id ="submit" class="col button" onclick="submitNotes(0)">Top</button>
-  <button id ="submit" class="col button" onclick="submitNotes(notesCollection.length/2)">Middle</button>
-  <button id ="submit" class="col button" onclick="submitNotes(notesCollection.length)">Bottom</button><button id ="submit" onclick="htmlSwap();" class="col button">Cancel</button>`
+  expand('addItemBar', '50px', '370px');
+  document.getElementById('buttonWrapper').innerHTML = `<button id ="submit" onclick="htmlSwap();" class="col button">Cancel</button>`
 }
 // Below the array of note objects is iterated through adding html elements containing the properties of each note objects.
 function loadNotes(){
