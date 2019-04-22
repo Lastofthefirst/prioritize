@@ -108,16 +108,21 @@ background-color: rgb(215, 237, 255);
     display:flex;
     flex-direction:column;
     justify-content: space-between;
+    margin:2px;
 }
 .secondRow{
     display:flex;
     flex-direction:column;
     justify-content: space-between;
+
+    margin:2px;
 }
 .thirdRow{
     display:flex;
     flex-direction:column;
     justify-content: space-between;
+    width:120px;
+    margin:2px;
 }
 
 
@@ -182,11 +187,39 @@ background-color: rgb(215, 237, 255);
     border-radius: 45px;
     text-align: center;
 }
+.costItem{
+    text-align:center;
+    position:absolute;
+    right: 20px;
+    top: 0px;
+    border: 2px solid rgb(0, 140, 255);
+    border-radius: 5px;
+    padding: 5px;
+}
+.costItem::before{
+    content:'$';
+
+}
+.editButton{
+    position:absolute;
+    right: 10px;
+    width: 60px;
+    bottom: 60px;
+}
+.deleteButton{
+    position:absolute;
+    right: 10px;
+    width: 70px;
+    bottom: 10px;
+}
+
 .cardBody{
-    background-color: rgb(224, 224, 224);
+    background-color: rgb(247, 247, 247);
     margin: 10px;
     border-radius: 5px;
     padding:10px;
+    box-shadow: 0px 2px 1px rgb(172, 172, 172)!important;
+
 }
 .del{
     background-color: rgb(14, 26, 202) !important;

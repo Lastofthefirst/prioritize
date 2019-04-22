@@ -88,9 +88,9 @@ function loadNotes(){
       </div>
       
       <div class='thirdRow'>
-      <h1>${notesCollection[i].cost}</h1>
-      <button class='upButton' href='#' onclick='editMe(this);' style='float:right; margin-right:10px;'>Edit</button>
-      <button class='upButton' href='#' onclick='deleteMe(this);' style='float:right; margin-right:10px;' data-uid='${notesCollection[i].uid}'>X</button>
+      <h1 class="costItem">${notesCollection[i].cost}</h1>
+      <button class='editButton upButton' href='#' onclick='editMe(this);' style='float:right; margin-right:10px;'>Edit</button>
+      <button class='deleteButton upButton' href='#' onclick='deleteMe(this);' style='float:right; margin-right:10px;' data-uid='${notesCollection[i].uid}'>Delete</button>
       </div>
       
       </div>`;
