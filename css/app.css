@@ -1,21 +1,18 @@
 /* Your app styles here */
-:root{
-    transition-duration: 1s;
-    -webkit-transition-duration: 1s;
-}
-button{
-    border-radius: 5px;
-    background-color:white;
-}
+
 .navbar{
- background-color: rgb(9, 63, 9);
+ background-color: rgb(0, 119, 255);
     color: white;
+    overflow: visible;
+}
+.page-content{
+background-color: rgb(215, 237, 255);
 }
 .fab>a, .fab-label-button{
-    background-color:green !important;
+    
 }
 #spendingContainer{
-    background-color:green;
+    background-color:rgb(0, 119, 255);
     height: 20px;
     width:50px;
     border-radius: 50px;
@@ -29,10 +26,10 @@ button{
     right: 10px;
     top: 5px;
     z-index: 5;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.575);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.199);
 }
 #dollar{
-    background-color: rgb(167, 238, 179);
+
     height: 28px;
     width: 15px;
     border-top-left-radius: 15px;
@@ -44,7 +41,7 @@ button{
     padding-left: 3px;
 }
 #spending{
-    background-color: rgb(167, 238, 179);
+
     height: 30px;
     width: 55px;
     border-top-right-radius: 15px;
@@ -56,8 +53,8 @@ button{
 
 }
 #addItemBar{
-    transition-duration: 1s;
-    -webkit-transition-duration: 1s;
+    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
 }
 .toolbar-inner{
     display:flex;
@@ -103,7 +100,7 @@ button{
     justify-content: space-evenly;
     width: 80vw;
     padding: 10px;
-    background-color: rgb(152, 180, 152);
+    background-color: white;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.575);
     z-index: 2;
 }
@@ -122,11 +119,91 @@ button{
     flex-direction:column;
     justify-content: space-between;
 }
-.true{
-    background-color:rgb(211, 210, 143) !important; 
+.true::before{
+    content: '';
+    height: 10px;
+    width: 25px;
+    background-color: pink;
+    position:absolute;
+    top: -1px;
 }
+
+ .card .true::before{
+    content: '';
+    height: 40px;
+    width: 55px;
+    background-color: red;
+    position:absolute;
+    top: -1px;
+    left: 0px;
+}
+
 #submitWrapper{
     display: flex;
     justify-content: space-between;
     padding: 5px;
+}
+.indexDisplay{
+    background-color:rgb(0, 140, 255);
+    border-radius: 50px;
+    height: 23px;
+    width: 25px;
+    text-align: center;
+    color:white;
+    padding-top: 2px;
+    font-weight: 800;
+}
+.upButton {
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    background-color: white;
+    color: rgb(0, 140, 255);
+    border: 2px solid rgb(0, 140, 255);
+    border-radius: 5px;
+    box-shadow: 0.5px 0.5px 1px rgba(105, 105, 105, 0.637);
+    font-size: 16px;
+    display: absolute;
+    right: 5px;
+    height: 40px;
+}
+
+.upButton:hover {
+    color: white;
+    background-color: rgb(0, 140, 255);
+    box-shadow: none;
+}
+.downButton {
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    background-color: white;
+    color: rgb(0, 140, 255);
+    border: 2px solid rgb(0, 140, 255);
+    border-radius: 5px;
+    box-shadow: 0.5px 0.5px 1px rgba(105, 105, 105, 0.637);
+    font-size: 16px;
+    display: absolute;
+    right: 5px;
+    height: 40px;
+}
+
+.downButton:hover {
+    color: white;
+    background-color: rgb(0, 140, 255);
+    box-shadow: none;
+}
+.menu-item-dropdown{
+    display: fixed;
+    background-color:transparent;
+    position:absolute;
+    left: 5px;
+}
+.menu-dropdown-content{
+    z-index: 10;
+}
+#AppIcon{
+    height: 45px;
+    margin-left: 15px;
+}
+.del{
+    background-color: rgb(14, 26, 202) !important;
 }

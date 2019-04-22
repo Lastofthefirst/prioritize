@@ -70,24 +70,27 @@ function newButtons(){
 // Below the array of note objects is iterated through adding html elements containing the properties of each note objects.
 function loadNotes(){
   element.innerHTML = "";
+  if(notesCollection.length<1){
+    element.innerHTML = "<div id='infoCard'><p>Welcome to someday</p>Create a list of items organized by priority, with those items most urgent at the top.<p>Once you have some money available to put towards them enter the amount in the top left bubble.</p><p>Im sure you'll get to the bottom of the list someday.</p></div>"
+  }
   for (i = 0; i < notesCollection.length; i++){
-      var htmlString = `<div class="card ${notesCollection[i].highlight}" data-uid='${notesCollection[i].uid}'>
+      var htmlString = `<div class="card" data-uid='${notesCollection[i].uid}'>
       <div class='firstRow'>
-      <div>${Number(i+1)}</div>
-      <button data-uid=${notesCollection[i].uid} onclick='moveUp(this);'>^</button>
-      <button data-uid='${notesCollection[i].uid}' onclick='moveDown(this);'>v</button>
+      <div class='indexDisplay ${notesCollection[i].highlight}'> ${Number(i+1)}</div>
+      <button class='upButton'data-uid=${notesCollection[i].uid} onclick='moveUp(this);'>Up</button>
+      <button class='downButton'data-uid='${notesCollection[i].uid}' onclick='moveDown(this);'>Down</button>
       </div>
       
       <div class='secondRow'>
       <h1>${notesCollection[i].title}</h1>
       <p>${notesCollection[i].body}</p>
-      <button data-uid='${notesCollection[i].uid}' onclick='purchased(this);'>Purchased</button>
+      <button class='upButton' data-uid='${notesCollection[i].uid}' onclick='purchased(this);'>Purchased</button>
       </div>
       
       <div class='thirdRow'>
       <h1>${notesCollection[i].cost}</h1>
-      <button href='#' onclick='editMe(this);' style='float:right; margin-right:10px;'>Edit</button>
-      <button href='#' onclick='deleteMe(this);' style='float:right; margin-right:10px;' data-uid='${notesCollection[i].uid}'>X</button>
+      <button class='upButton' href='#' onclick='editMe(this);' style='float:right; margin-right:10px;'>Edit</button>
+      <button class='upButton' href='#' onclick='deleteMe(this);' style='float:right; margin-right:10px;' data-uid='${notesCollection[i].uid}'>X</button>
       </div>
       
       </div>`;
@@ -198,6 +201,12 @@ function titleList(){
     listDiv.innerHTML = listContent;
     list.appendChild(listDiv);
   }
+  if(notesCollection.length>3){
+  let endList = document.createElement('div');
+  let endListContent = '<a href="#" onclick="deleteNotes()" class="fab-label-button del"><span>Clear</span>';
+    endList.innerHTML = endListContent;
+    list.appendChild(endList);
+  };
 }
 
 
@@ -277,5 +286,4 @@ function deleteNotes(){
   notesCollection = [];
   element.innerHTML = "";
   titleList();
-  htmlSwap();
 };
