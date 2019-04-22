@@ -77,14 +77,14 @@ function loadNotes(){
       var htmlString = `<div class="card ${notesCollection[i].highlight+'1'}" data-uid='${notesCollection[i].uid}'>
       <div class='firstRow'>
       <div class='indexDisplay ${notesCollection[i].highlight}'> ${Number(i+1)}</div>
-      <button class='upButton'data-uid=${notesCollection[i].uid} onclick='moveUp(this);'>Up</button>
-      <button class='upButton'data-uid='${notesCollection[i].uid}' onclick='moveDown(this);'>Down</button>
+      <button class='up upButton'data-uid=${notesCollection[i].uid} onclick='moveUp(this);'>Up</button>
+      <button class='down upButton'data-uid='${notesCollection[i].uid}' onclick='moveDown(this);'>Down</button>
       </div>
       
       <div class='secondRow'>
       <h1 class="itemCardTitle ${notesCollection[i].highlight+'1'}">${notesCollection[i].title}</h1>
       <p class="cardBody">${notesCollection[i].body}</p>
-      <button class='upButton' data-uid='${notesCollection[i].uid}' onclick='purchased(this);'>Purchased</button>
+      <button class='upButton purchased' data-uid='${notesCollection[i].uid}' onclick='purchased(this);'>Purchased</button>
       </div>
       
       <div class='thirdRow'>
