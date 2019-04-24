@@ -67,12 +67,13 @@ function newButtons(){
   expand('addItemBar', '50px', '370px');
   document.getElementById('buttonWrapper').innerHTML = `<button id ="submit" onclick="htmlSwap();" class="col upButton button">Cancel</button>`
 }
+
 // Below the array of note objects is iterated through adding html elements containing the properties of each note objects.
 function loadNotes(){
   element.innerHTML = "";
   if(notesCollection.length<1){
     element.innerHTML = `<div id='infoCard'><img src='Sunicon1.png' id='AppIcon'><h3>Someday</h3>
-    <p>Someday is an app that helps to prioritize one off purchases.</p><p>Create a list of items organized by priority using the ADD ITEM button at the bottom. The most important items belong at the top of the list.</p><p>Once you have money available to put towards your list them enter the amount in the top left bubble.</p><p>Im sure you'll get to the bottom of the list someday.</p></div>`
+    <p>Someday is an app that helps to prioritize one off purchases.</p><p>Create a list of items organized by priority using the ADD ITEM button at the bottom. The most important items belong at the top of the list.</p><p>Once you have money available to put towards your list, put the type the amount above.</p><p>Someday will highlight the items you can afford in order, helping you to keep priority. I'm sure you'll get to the bottom someday!</p></div>`
   }
   for (i = 0; i < notesCollection.length; i++){
     let cardSummary = '';
@@ -106,17 +107,8 @@ function loadNotes(){
         notesCollection = [];
     }
   }
+  totalUp();
 };
-
-
-
-
-
-
-
-
-
-
 
 
 function editMe(thisthis){
@@ -153,8 +145,6 @@ function highLight(){
   loadNotes();
   titleList();
 }
-
-
 
 // Saves the changes made from the editMe function to the original object and reloads notes.
 function saveChanges(thisHere){
@@ -214,7 +204,14 @@ function titleList(){
   };
 }
 
-
+function totalUp(){
+  let totalCost = 0;
+  for (let i =0; i<notesCollection.length; i++){
+    totalCost = totalCost + Number(notesCollection[i].cost);
+  };
+  let costHolder = document.getElementById('totalCost');
+  costHolder.innerHTML = `<div>  /  ${totalCost}</div>`;
+}
 
 function moveUp(thisNote){
 
@@ -283,6 +280,7 @@ function submitNotes(spot){
   titleList();
   highLight();
   htmlSwap();
+  totalUp();
 };
 
 // Below localStorage is cleared, as well as the array of note objects and the output html element.
@@ -292,4 +290,5 @@ function deleteNotes(){
   element.innerHTML = "";
   titleList();
   highLight();
+  totalUp();
 };
