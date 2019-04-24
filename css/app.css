@@ -283,16 +283,19 @@ margin-right: auto;
 .upArrow{
     height: 30px;
     transform: rotate(180deg);
+    margin-left: auto;
+    margin-right: auto;
 }
 .downArrow{
     height: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .down{
     position:absolute;
     bottom: 10px;
     left: 10px;
     width: 50px;
-
 }
 .purchased{
     position:absolute;
@@ -301,6 +304,12 @@ margin-right: auto;
     max-width: 40%;
     right: 120px;
     margin-left: 60px;
+}
+p{
+    margin-top: 10px;
+}
+h3{
+    margin-top: 0px;
 }
 
 .del{
