@@ -113,7 +113,7 @@ function loadNotes(){
 
 function editMe(thisthis){
     // define the html string, its delicate, needs to be adjusted if more html nodes are added
-    let editString = `<div id="inputEdit">
+    let editString = `<div  id="inputEdit">
     <div class="list no-hairlines-md">
         <ul>
           <li class="item-content item-input item-input-outline">
@@ -154,7 +154,7 @@ function editMe(thisthis){
           </li>
         </ul>
       </div>
-      <button class="upButton" onclick='loadNotes()'>Cancel</button><button href='' class='upButton' onclick='saveChanges(this)';' data-uid='${thisthis.parentNode.getAttribute('data-uid')}'>Save</button></div>
+      <div class='buttonHolder'><button href='' class='upButton edited' onclick='saveChanges(this)';' data-uid='${thisthis.parentNode.parentNode.getAttribute('data-uid')}'>Save</button><button class="upButton edited" onclick='loadNotes()'>Cancel</button></div></div>
       </div>`;
   // find the parent replace the parent with an html string.
     thisthis.parentNode.parentNode.innerHTML = editString;
@@ -172,9 +172,10 @@ function editMe(thisthis){
 // Saves the changes made from the editMe function to the original object and reloads notes.
 function saveChanges(thisHere){
   // This is a bit delicate, will need to be adjusted if new html nodes are added above.
-  let newBody = thisHere.parentNode.children[1].value,
-      newTitle = thisHere.parentNode.children[0].children[0].value,
-      newCost = thisHere.parentNode.children[0].children[1].value,
+  console.log(thisHere.getAttribute("data-uid"));
+  let newBody = thisHere.parentNode.parentNode.children[0].children[0].children[2].children[1].children[1].children[0].value,
+      newTitle = thisHere.parentNode.parentNode.children[0].children[0].children[0].children[1].children[1].children[0].value,
+      newCost = thisHere.parentNode.parentNode.children[0].children[0].children[1].children[1].children[1].children[0].value,
       thisUid = thisHere.getAttribute("data-uid"),
       thisIndex = findWithAttr(notesCollection, 'uid', thisUid);
 

@@ -277,25 +277,27 @@ margin-right: auto;
     position:absolute;
     bottom: 60px;
     left: 10px;
-    width: 50px;
+    width: 40px;
 
 }
 .upArrow{
     height: 30px;
     transform: rotate(180deg);
-    margin-left: auto;
-    margin-right: auto;
+    position:absolute;
+    bottom: 4px;
+    left: 4px;
 }
 .downArrow{
     height: 30px;
-    margin-left: auto;
-    margin-right: auto;
+    position:absolute;
+    bottom: 4px;
+    left: 4px;
 }
 .down{
     position:absolute;
     bottom: 10px;
     left: 10px;
-    width: 50px;
+    width: 40px;
 }
 .purchased{
     position:absolute;
@@ -304,6 +306,14 @@ margin-right: auto;
     max-width: 40%;
     right: 120px;
     margin-left: 60px;
+}
+.edited{
+    width: 40%;
+}
+.buttonHolder{
+    display:flex;
+    justify-content: space-evenly;
+    flex-direction: row;
 }
 p{
     margin-top: 10px;
