@@ -71,7 +71,8 @@ function newButtons(){
 function loadNotes(){
   element.innerHTML = "";
   if(notesCollection.length<1){
-    element.innerHTML = "<div id='infoCard'><p>Welcome to someday</p>Create a list of items organized by priority, with those items most urgent at the top.<p>Once you have some money available to put towards them enter the amount in the top left bubble.</p><p>Im sure you'll get to the bottom of the list someday.</p></div>"
+    element.innerHTML = `<div id='infoCard'><img src='Sunicon1.png' id='AppIcon'><h3>Someday</h3>
+    <p>Someday is an app that helps to prioritize one off purchases.</p><p>Create a list of items organized by priority using the ADD ITEM button at the bottom. The most important items belong at the top of the list.</p><p>Once you have money available to put towards your list them enter the amount in the top left bubble.</p><p>Im sure you'll get to the bottom of the list someday.</p></div>`
   }
   for (i = 0; i < notesCollection.length; i++){
     let cardSummary = '';
@@ -81,8 +82,8 @@ function loadNotes(){
       var htmlString = `<div class="card ${notesCollection[i].highlight+'1'}" data-uid='${notesCollection[i].uid}'>
       <div class='firstRow'>
       <div class='indexDisplay ${notesCollection[i].highlight}'> ${Number(i+1)}</div>
-      <button class='up upButton'data-uid=${notesCollection[i].uid} onclick='moveUp(this);'>Up</button>
-      <button class='down upButton'data-uid='${notesCollection[i].uid}' onclick='moveDown(this);'>Down</button>
+      <button class='up upButton'data-uid=${notesCollection[i].uid} onclick='moveUp(this);'><img class="upArrow" src="Arrow.png"></button>
+      <button class='down upButton'data-uid='${notesCollection[i].uid}' onclick='moveDown(this);'><img class="downArrow" src="Arrow.png"></button>
       </div>
       
       <div class='secondRow'>

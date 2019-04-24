@@ -29,7 +29,7 @@ background-color: rgb(215, 237, 255);
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.199);
 }
 #dollar{
-
+    color:white;
     height: 28px;
     width: 15px;
     border-top-left-radius: 15px;
@@ -103,6 +103,15 @@ background-color: rgb(215, 237, 255);
     color:white;
     border-radius: 5px;
 }
+#AppIcon{
+    height: 45px;
+    width: 50px;
+    text-align:center;
+    align-content:center;
+        display: block;
+margin-left: auto;
+margin-right: auto;
+}
 .card{
     display:flex;
     flex-direction:row;
@@ -143,6 +152,8 @@ background-color: rgb(215, 237, 255);
     padding-top: 8px;
     font-weight: 800;
     z-index: 1;
+    position:absolute;
+    left: 10px;
 }
 
 
@@ -185,23 +196,22 @@ background-color: rgb(215, 237, 255);
 .menu-dropdown-content{
     z-index: 10;
 }
-#AppIcon{
-    height: 45px;
-    margin-left: 15px;
+
 }
 .itemCardTitle{
     background-color:rgb(166, 233, 255);
-     margin-left: 20px;
+     margin-left: 40px;
     margin-right: 70px;
     padding: 10px;
     border-radius: 45px;
     text-align: center;
     margin-top: 0px;
     box-shadow: 0px 0.5px 1px rgb(172, 172, 172);
+    max-width: 280px;
 }
 .cardBody{
     background-color: rgb(248, 248, 248);
-    margin-left: 20px;
+    margin-left: 55px;
     margin-right: 70px;
     border-radius: 5px;
     padding:10px;
@@ -209,6 +219,7 @@ background-color: rgb(215, 237, 255);
     margin-bottom: 50px;
     margin-top: -10px;
     min-height: 30px;
+
 }
 .empty{
     background-color: transparent;
@@ -228,7 +239,7 @@ background-color: rgb(215, 237, 255);
     top: 0px;
     border: 2px solid rgb(0, 140, 255);
     border-radius: 5px;
-    padding: 3px;
+    padding: px;
     background-color: rgb(0, 140, 255);
     color: white;
     font-size: 18px;
@@ -256,11 +267,18 @@ background-color: rgb(215, 237, 255);
     width: 50px;
 
 }
+.upArrow{
+    height: 30px;
+    transform: rotate(180deg);
+}
+.downArrow{
+    height: 30px;
+}
 .down{
     position:absolute;
     bottom: 10px;
     left: 10px;
-    width: 70px;
+    width: 50px;
 
 }
 .purchased{
@@ -268,6 +286,7 @@ background-color: rgb(215, 237, 255);
     bottom:10px;
     width: 100px;
     right: 120px;
+    margin-left: 60px;
 }
 
 .del{
