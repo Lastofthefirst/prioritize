@@ -113,10 +113,84 @@ function loadNotes(){
 
 function editMe(thisthis){
     // define the html string, its delicate, needs to be adjusted if more html nodes are added
-    let editString = `<div><h1><input type='text' placeholder='Oops! You forgot a title!' value='${thisthis.parentNode.children[2].innerText}'><input type='text' placeholder='Oops! You forgot a title!' value='${thisthis.parentNode.children[3].innerText}'></h1><input type='text' placeholder='No Content!' value='${thisthis.parentNode.children[5].innerText}'><button style='float:right; margin-right:10px;' onclick='loadNotes()'>Cancel</button><button href='' onclick='saveChanges(this)' style='float:right; margin-right:10px;' data-uid='${thisthis.parentNode.getAttribute('data-uid')}'>Save</button></div><hr>`;
+    let editString = `<div id="inputEdit">
+    <div class="list no-hairlines-md">
+        <ul>
+          <li class="item-content item-input item-input-outline">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-label">Item</div>
+              <div class="item-input-wrap">
+                <input type="text" id="titleInput" value='${thisthis.parentNode.parentNode.children[1].children[0].innerText}' >
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input item-input-outline">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-label">Cost</div>
+              <div class="item-input-wrap">
+                <input type="number" id="costInput" value='${thisthis.parentNode.parentNode.children[2].children[0].innerText}' placeholder="Estimate the price">
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input item-input-outline">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-label">Summary</div>
+              <div class="item-input-wrap">
+                <input type="text" id="bodyInput" value='${thisthis.parentNode.parentNode.children[1].children[1].innerText}' placeholder="Any more info about it">
+                <span class="input-clear-button"></span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button class="upButton" onclick='loadNotes()'>Cancel</button><button href='' class='upButton' onclick='saveChanges(this)';' data-uid='${thisthis.parentNode.getAttribute('data-uid')}'>Save</button></div>
+      </div>`;
   // find the parent replace the parent with an html string.
     thisthis.parentNode.parentNode.innerHTML = editString;
+
+/*`<div><h1><input type='text' placeholder='Oops! You forgot a title!' value='${thisthis.parentNode.parentNode.children[1].children[0].innerText}'><input type='text' placeholder='Whats the cost?' value='${thisthis.parentNode.parentNode.children[2].children[0].innerText}'></h1><input type='text' placeholder='No Content!' value='${thisthis.parentNode.parentNode.children[1].children[1].innerText}'><button style='float:right; margin-right:10px;' class="upButton" onclick='loadNotes()'>Cancel</button><button href='' class='upButton' onclick='saveChanges(this)' style='float:right; margin-right:10px;' data-uid='${thisthis.parentNode.getAttribute('data-uid')}'>Save</button></div>` */
+
+
+
+
+
+
+
 }
+
+// Saves the changes made from the editMe function to the original object and reloads notes.
+function saveChanges(thisHere){
+  // This is a bit delicate, will need to be adjusted if new html nodes are added above.
+  let newBody = thisHere.parentNode.children[1].value,
+      newTitle = thisHere.parentNode.children[0].children[0].value,
+      newCost = thisHere.parentNode.children[0].children[1].value,
+      thisUid = thisHere.getAttribute("data-uid"),
+      thisIndex = findWithAttr(notesCollection, 'uid', thisUid);
+
+
+  notesCollection[thisIndex].title = newTitle;
+  notesCollection[thisIndex].body = newBody;
+  notesCollection[thisIndex].cost = newCost;
+
+  let notesCollectionSerialized = JSON.stringify(notesCollection);
+  localStorage.setItem("notesArray", notesCollectionSerialized);
+    // 5. Reload notes & title list
+  loadNotes();
+  titleList();
+  // Set the .title and .body properties of the particular note object to the new input's values.
+
+};
 
 // Finds a particular Object's index by a given property
 // Super useful, i think ES6 has a way to make it a little cleaner with a newer version of a for loop
@@ -146,28 +220,7 @@ function highLight(){
   titleList();
 }
 
-// Saves the changes made from the editMe function to the original object and reloads notes.
-function saveChanges(thisHere){
-  // This is a bit delicate, will need to be adjusted if new html nodes are added above.
-  let newBody = thisHere.parentNode.children[1].value,
-      newTitle = thisHere.parentNode.children[0].children[0].value,
-      newCost = thisHere.parentNode.children[0].children[1].value,
-      thisUid = thisHere.getAttribute("data-uid"),
-      thisIndex = findWithAttr(notesCollection, 'uid', thisUid);
 
-
-  notesCollection[thisIndex].title = newTitle;
-  notesCollection[thisIndex].body = newBody;
-  notesCollection[thisIndex].cost = newCost;
-
-  let notesCollectionSerialized = JSON.stringify(notesCollection);
-  localStorage.setItem("notesArray", notesCollectionSerialized);
-    // 5. Reload notes & title list
-  loadNotes();
-  titleList();
-  // Set the .title and .body properties of the particular note object to the new input's values.
-
-};
 // Deletes a specific note from the array, localStorage and the display.
 function deleteMe(thisthis){
     // 1. find parent of the button, delete parent from DOM
