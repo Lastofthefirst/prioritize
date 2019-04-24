@@ -88,7 +88,7 @@ function loadNotes(){
       </div>
       
       <div class='secondRow'>
-      <h1 class="itemCardTitle ${notesCollection[i].highlight+'1'}">${notesCollection[i].title}</h1>
+      <h1 class="itemCardTitle">${notesCollection[i].title}</h1>
       <p class="cardBody ${cardSummary}">${notesCollection[i].body}</p>
       <button class='upButton purchased' data-uid='${notesCollection[i].uid}' onclick='purchased(this);'>Purchased</button>
       </div>
