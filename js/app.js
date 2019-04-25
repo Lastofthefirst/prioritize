@@ -189,6 +189,7 @@ function saveChanges(thisHere){
     // 5. Reload notes & title list
   loadNotes();
   titleList();
+  highLight();
   // Set the .title and .body properties of the particular note object to the new input's values.
 
 };
