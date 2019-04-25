@@ -115,9 +115,9 @@ background-color: rgb(215, 237, 255);
     width: 50px;
     text-align:center;
     align-content:center;
-        display: block;
-margin-left: auto;
-margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .card{
     display:flex;
@@ -128,7 +128,6 @@ margin-right: auto;
     background-color: white;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.575);
     z-index: 2;
-    min-height: 250px;
 }
 .firstRow{
     display:flex;
@@ -307,6 +306,7 @@ margin-right: auto;
     right: 120px;
     margin-left: 60px;
 }
+
 .edited{
     width: 40%;
 }
@@ -330,10 +330,17 @@ h3{
     box-shadow: 0px -2px 8px 2px rgb(251, 255, 0)!important;
 }
 .true1{
-    box-shadow: 0px -2px 8px 10px rgb(232, 248, 10)!important;
-    background-color: rgb(153, 200, 238);
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.575);
+    background-color: rgb(227, 236, 243);
     border-radius: 5px;
 }
-.true2{
-    background-color: red;
+.true1 .purchased{
+    box-shadow: 0px -2px 5px rgb(176, 223, 255);
+    background-color: rgb(34, 155, 255);
+    color: white;
+    border: 2px solid rgb(44, 160, 255);
+}
+.true1 .purchased:active{
+    color: rgb(0, 140, 255);
+    background-color:white;
 }
