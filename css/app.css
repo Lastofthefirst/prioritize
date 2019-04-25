@@ -1,10 +1,4 @@
-/* Your app styles here */
 
-.navbar{
- background-color: rgb(0, 119, 255);
-    color: white;
-    overflow: visible;
-}
 .page-content{
 background-color: rgb(215, 237, 255);
 }
@@ -344,4 +338,7 @@ h3{
 .true1 .purchased:active{
     color: rgb(0, 140, 255);
     background-color:white;
+}
+.toolbar-inner{
+    background-color: rgb(195, 217, 236);
 }
